@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+/* Header */
+header {
+  background: #222;
+  color: #fff;
+  padding: 20px;
+  font-size: 24px;
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+nav .logo img {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.logo img:hover {
+  transform: scaleX(-1);
+}
+
+
+
+
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 4px;
+  background: white;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+/* Section */
+section {
+  max-width: 90%;
+  margin: 80px auto 40px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Team Section */
+.team-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.team-member {
+  text-align: center;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  width: 220px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.team-member:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Achievements */
+.achievements-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.achievement {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.achievement:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: #fff;
+  margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.active div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .team-container,
+  .achievements-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member,
+  .achievement {
+    width: 90%;
+  }
+}

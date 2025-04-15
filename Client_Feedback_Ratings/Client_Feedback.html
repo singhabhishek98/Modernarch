@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us Form</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo-modified.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="feedback.css">
+</head>
+
+<body>
+    <div class="signup-container">
+        <div class="left-container">
+            <h1><i class="fas fa-star"></i> RATE US</h1>
+            <img src="../images/logo.jpg" alt="Company Logo" class="company-img">
+        </div>
+        <div class="right-container">
+            <h1>We'd love your feedback!</h1>
+            <form action="submit_feedback.php" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label>Rate your experience</label>
+                    <div class="rating">
+                        <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Your Comments</label>
+                    <textarea id="comments" name="comments" rows="4" placeholder="Share your thoughts..."></textarea>
+                </div>
+                <div class="buttons">
+                    <button type="reset" id="reset">Reset</button>
+                    <button type="submit" id="submit">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("rateForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let rating = document.querySelector('input[name="rating"]:checked');
+            let comments = document.getElementById("comments").value;
+
+            if (!rating) {
+                alert("Please select a rating.");
+                return;
+            }
+
+            alert(`Thank you, ${name}!\nRating: ${rating.value} stars\nComments: ${comments}`);
+            document.getElementById("rateForm").reset();
+        });
+    </script>
+</body>
+
+</html>

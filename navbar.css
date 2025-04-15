@@ -1,0 +1,275 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/home.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 30px;
+    max-width: 600px;
+  }
+  
+  /* Navigation Bar */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    transition: background 0.3s ease;
+  }
+  
+  nav .logo img {
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  nav ul li a:hover {
+    color: #ea1538;
+    background: white;
+  }
+  
+  nav ul li a.active {
+    background: #ea1538;
+    color: white;
+  }
+  
+  button {
+    background: #ea1538;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    background: #d11230;
+  }
+  
+  /* Header Section */
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    color: white;
+  }
+  
+  .header h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 30px;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+  
+  /* Content Sections */
+  .content {
+    padding: 40px 10%;
+    text-align: center;
+    background: #f7f7f7;
+  }
+  
+  .content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  
+  .content p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .content .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .content .button-container button {
+    margin-top: 20px;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 1200px) {
+    nav ul {
+      gap: 15px;
+    }
+  
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .hero p {
+      font-size: 1rem;
+      max-width: 500px;
+    }
+  
+    .header h1 {
+      font-size: 2.5rem;
+    }
+  
+    .content h2 {
+      font-size: 2rem;
+    }
+  
+    .content p {
+      font-size: 0.9rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    nav {
+      padding: 10px 3%;
+    }
+  
+    nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 50px 0;
+      text-align: center;
+    }
+  
+    nav ul li a {
+      padding: 10px;
+      font-size: 1.2rem;
+    }
+  
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .header h1 {
+      font-size: 2rem;
+    }
+  
+    .content h2 {
+      font-size: 1.5rem;
+    }
+  
+    .content p {
+      font-size: 0.9rem;
+      max-width: 90%;
+    }
+  
+    .content .button-container button {
+      padding: 12px 25px;
+    }
+  
+    .menu-toggle {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .menu-toggle.active + ul {
+      display: flex;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    nav ul li a {
+      font-size: 1rem;
+    }
+  
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+  
+    .hero p {
+      font-size: 0.9rem;
+      max-width: 90%;
+    }
+  
+    .header h1 {
+      font-size: 1.8rem;
+    }
+  
+    .content h2 {
+      font-size: 1.3rem;
+    }
+  
+    .content p {
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+  
+    button {
+      padding: 8px 16px;
+    }
+  }
+  

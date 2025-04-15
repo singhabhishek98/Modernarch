@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact With Us</title>
+    <link rel="icon" type="image/x-icon" href="../images/logo-modified.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="Contact-us.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="text">Contact With Us</div>
+
+        <form id="contactForm" action="submit.php" method="post">
+            <input type="hidden" name="access_key" value="ea030204-e7fd-4466-aecd-07a3f2c23d96">
+
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="Name" required>
+                    <div class="underline"></div>
+                    <label for="Name">Name</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="Project_Type" required>
+                    <div class="underline"></div>
+                    <label for="Project_Type">Project Type</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="address" required>
+                    <div class="underline"></div>
+                    <label for="address">Address</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="mobile" id="mobile" required maxlength="10" minlength="10" pattern="\d{10}"
+                        title="Please enter a valid 10-digit mobile number">
+                    <div class="underline"></div>
+                    <label for="mobile">Mobile No</label>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-data textarea">
+                    <textarea name="message" rows="8" cols="80" required></textarea>
+                    <br />
+                    <div class="underline"></div>
+                    <label for="message">Write your message</label>
+                    <br />
+                    <div class="form-row submit-btn">
+                        <div class="input-data">
+                            <div class="inner"></div>
+                            <input type="submit" value="Submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let formData = new FormData(this);
+
+            // Submit to Web3Forms API
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Web3Forms Response:", data);
+
+                    // If Web3Forms submission is successful, submit to PHP
+                    if (data.success) {
+                        this.submit();
+                    } else {
+                        alert("Error in Web3Forms submission");
+                    }
+                })
+                .catch(error => {
+                    console.error("Web3Forms Error:", error);
+                    alert("Error in form submission");
+                });
+        });
+    </script>
+
+</body>
+
+</html>

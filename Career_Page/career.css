@@ -1,0 +1,21 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fc;
+}
+
+.container {
+    max-width: 900px;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+.job-listing {
+    border-left: 5px solid #007bff;
+}
+
+button {
+    font-weight: bold;
+
+}

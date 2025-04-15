@@ -1,0 +1,113 @@
+body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .box {
+            width: 90%;
+            max-width: 1000px;
+            height: auto;
+            background: linear-gradient(135deg, #000000, #ff0000);
+            color: white;
+            position: relative;
+            border-radius: 12px;
+            margin: 40px auto;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.5s ease-in-out, box-shadow 0.3s ease;
+            opacity: 0; /* Initially hidden */
+        }
+
+        .box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .heading {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .text {
+            width: 50%;
+            font-size: 18px;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .gif {
+            width: 45%;
+            text-align: center;
+        }
+
+        .gif img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gif img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes appearLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes appearRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .text, .gif {
+                width: 100%;
+                padding: 0;
+            }
+
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gif {
+                margin-bottom: 20px;
+            }
+        }
