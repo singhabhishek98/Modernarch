@@ -142,6 +142,16 @@ hr {
   margin-top: 30px;
 }
 
+/* Style for hr with class new1 to fix red line issue */
+hr.new1 {
+  border: none;
+  height: 2px;
+  background-color: #ffffffcc; /* semi-transparent white */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 1px;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .footer-content {
@@ -153,6 +163,11 @@ hr {
     flex: 1 1 100%;
     margin-right: 0;
     margin-bottom: 30px;
+    box-sizing: border-box;
+  }
+
+  .footer-column:last-child {
+    margin-right: 0;
   }
 
   .footer-bottom {

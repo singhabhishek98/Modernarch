@@ -25,19 +25,23 @@ $result = $conn->query($sql);
 <body>
 
   <!-- Navigation Bar -->
+<?php
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
+
   <div>
     <nav>
       <a href="../index.html" class="logo">
         <img src="../images/logo.jpg" alt="Modernarch Logo">
       </a>
       <ul>
-        <li><a href="../index.html"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="../About_Us/about_us.php"><i class="fa fa-info-circle"></i> About</a></li>
-        <li><a href="./services.php"><i class="fa fa-cogs"></i> Services</a></li>
-        <li><a href="../Projects/portfolio.php"><i class="fa fa-briefcase"></i> Portfolio</a></li>
-        <li><a href="../Career_Page/career.php"><i class="fa fa-user-graduate"></i> Career</a></li>
+        <li><a href="../index.html" class="<?php echo ($currentPage == 'index.html') ? 'active' : ''; ?>"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="../About_Us/about_us.php" class="<?php echo ($currentPage == 'about_us.php') ? 'active' : ''; ?>"><i class="fa fa-info-circle"></i> About</a></li>
+        <li><a href="./services.php" class="<?php echo ($currentPage == 'services.php') ? 'active' : ''; ?>"><i class="fa fa-cogs"></i> Services</a></li>
+        <li><a href="../Projects/portfolio.php" class="<?php echo ($currentPage == 'portfolio.php') ? 'active' : ''; ?>"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+        <li><a href="../Career_Page/career.php" class="<?php echo ($currentPage == 'career.php') ? 'active' : ''; ?>"><i class="fa fa-user-graduate"></i> Career</a></li>
         <li><a href="#" onclick="openPopup()"><i class="fa fa-user-shield"></i> Admin</a></li>
-        <li><a href="../Client_Feedback_Ratings/Ratings.php"><i class="fa fa-comments"></i> Feedback</a></li>
+        <li><a href="../Client_Feedback_Ratings/Ratings.php" class="<?php echo ($currentPage == 'Ratings.php') ? 'active' : ''; ?>"><i class="fa fa-comments"></i> Feedback</a></li>
       </ul>
 
       <!-- Popup Container -->
@@ -132,7 +136,7 @@ $result = $conn->query($sql);
             <a href="https://www.facebook.com/profile.php?id=100014693254784" target="_blank"><i
                 class="fab fa-facebook-f"></i></a>
             <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.X.com" target="_blank"><i class="fab fa-x-twitter"></i ></a>
             <a href="https://www.instagram.com/saurabhpatel_888/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/916393221303" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>

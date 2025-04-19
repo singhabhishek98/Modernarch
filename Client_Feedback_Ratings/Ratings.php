@@ -12,13 +12,12 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testimonials/Reviews</title>
     <link rel="icon" type="image/x-icon" href="../images/logo-modified.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="../footer.css">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="../popup.css">
     <link rel="stylesheet" href="ratings.css">
-
 </head>
 
 <body>
@@ -35,59 +34,22 @@ $result = $conn->query($sql);
                 <li><a href="../Projects/portfolio.php"><i class="fa fa-briefcase"></i> Portfolio</a></li>
                 <li><a href="../Career_Page/career.php"><i class="fa fa-user-graduate"></i> Career</a></li>
                 <li><a href="#" onclick="openPopup()"><i class="fa fa-user-shield"></i> Admin</a></li>
-
                 <li><a href="./Ratings.php"><i class="fa fa-comments"></i> Feedback</a></li>
             </ul>
-
 
             <!-- Popup Container -->
             <div class="popup-container" id="popup">
                 <div class="popup-box">
                     <button class="close-btn" onclick="closePopup()">&times;</button>
                     <h2>Admin Login</h2>
-
-                    <!-- Login Form (Submits to login.php) -->
                     <form action="../login.php" method="POST">
                         <input type="text" name="username" placeholder="Username" required>
                         <input type="password" name="password" placeholder="Password" required>
                         <button type="submit" class="login-btn">Login</button>
                     </form>
-
                     <p id="error-msg" style="color: red;"></p>
                 </div>
             </div>
-
-            <script>
-                function openPopup() {
-                    let popup = document.getElementById("popup");
-                    popup.style.display = "flex";
-                    setTimeout(() => popup.classList.add("show"), 10);
-                }
-
-                function closePopup() {
-                    let popup = document.getElementById("popup");
-                    popup.classList.remove("show");
-                    setTimeout(() => popup.style.display = "none", 300);
-                }
-
-                // Close when clicking outside the box
-                window.onclick = function (event) {
-                    let popup = document.getElementById("popup");
-                    if (event.target === popup) {
-                        closePopup();
-                    }
-                };
-
-                // Show error message if redirected with error
-                window.onload = function () {
-                    const params = new URLSearchParams(window.location.search);
-                    if (params.has("error")) {
-                        document.getElementById("error-msg").innerText = params.get("error");
-                        openPopup(); // Open popup if there's an error
-                    }
-                };
-            </script>
-
 
             <button type="button" onclick="redirectToPage()">Book Now</button>
             <div class="menu-toggle" id="mobile-menu">
@@ -103,7 +65,6 @@ $result = $conn->query($sql);
             <button class="rate-us-btn" onclick="window.open('Client_Feedback.html', '_blank')">Rate Us</button>
         </div>
 
-
         <div class="testimonials">
             <?php
             if ($result->num_rows > 0) {
@@ -111,19 +72,14 @@ $result = $conn->query($sql);
                     echo '<div class="testimonial">';
                     echo '<img src="' . htmlspecialchars($row['image']) . '" alt="' . htmlspecialchars($row['name']) . '">';
                     echo '<h3>' . htmlspecialchars($row['name']) . '</h3>';
-
-                    // Display star ratings based on experience score
                     $stars = str_repeat('⭐', $row['experience']);
                     echo "<p>$stars</p>";
-
                     echo '<p>' . htmlspecialchars($row['message']) . '</p>';
                     echo '</div>';
                 }
             } else {
                 echo '<p>No feedback available yet.</p>';
             }
-
-            // Close database connection
             $conn->close();
             ?>
         </div>
@@ -139,12 +95,10 @@ $result = $conn->query($sql);
                         solutions, and timeless designs for a better tomorrow. 🌍✨
                     </p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/profile.php?id=100014693254784" target="_blank"><i
-                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100014693254784" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/saurabhpatel_888/" target="_blank"><i
-                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.x.com" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/saurabhpatel_888/" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://wa.me/916393221303" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
@@ -182,8 +136,34 @@ $result = $conn->query($sql);
         </div>
     </footer>
 
-
     <script>
+        function openPopup() {
+            let popup = document.getElementById("popup");
+            popup.style.display = "flex";
+            setTimeout(() => popup.classList.add("show"), 10);
+        }
+
+        function closePopup() {
+            let popup = document.getElementById("popup");
+            popup.classList.remove("show");
+            setTimeout(() => popup.style.display = "none", 300);
+        }
+
+        window.onclick = function (event) {
+            let popup = document.getElementById("popup");
+            if (event.target === popup) {
+                closePopup();
+            }
+        };
+
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has("error")) {
+                document.getElementById("error-msg").innerText = params.get("error");
+                openPopup();
+            }
+        };
+
         function redirectToPage() {
             window.location.href = "../contact_with_us/Contact_with_us.html";
         }
@@ -191,5 +171,4 @@ $result = $conn->query($sql);
 
     <script src="../script.js"></script>
 </body>
-
 </html>

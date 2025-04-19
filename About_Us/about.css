@@ -43,6 +43,11 @@ nav .logo img {
   transition: transform 0.5s ease;
 }
 
+.logo img {
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
 .logo img:hover {
   transform: scaleX(-1);
 }

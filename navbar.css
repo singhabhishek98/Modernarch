@@ -51,12 +51,17 @@
     transition: background 0.3s ease;
   }
   
-  nav .logo img {
+nav .logo img {
     height: 65px;
     width: 65px;
     border-radius: 50%;
     cursor: pointer;
+    transition: transform 0.5s ease;
   }
+
+.logo img:hover {
+  transform: scaleX(-1);
+}
   
   nav ul {
     list-style: none;
@@ -64,11 +69,14 @@
     gap: 20px;
   }
   
-  nav ul li a {
+nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
     padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     transition: background 0.3s ease, color 0.3s ease;
     border-radius: 5px;
   }

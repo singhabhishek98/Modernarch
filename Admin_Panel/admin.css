@@ -116,20 +116,170 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Sidebar hidden by default on mobile */
     .sidebar {
         left: -250px;
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 10px 0;
     }
 
+    /* Sidebar visible when active */
     .sidebar.active {
         left: 0;
+        position: fixed;
+        width: 250px;
+        height: 100vh;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 20px;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    /* Content area full width when sidebar hidden */
+    .content {
+        margin-left: 0;
+        padding: 15px 10px;
+        margin: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Content margin when sidebar active */
+    .sidebar.active + .content {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+
+    /* Menu toggle button adjustments */
+    .menu-toggle {
+        left: 10px;
+        top: 10px;
+        padding: 10px;
+        font-size: 18px;
+        z-index: 1100;
+    }
+
+    /* Body and html overflow and background */
+    body, html {
+        overflow-x: hidden;
+        background: #000; /* override gradient with solid black on mobile */
+    }
+
+    /* Footer background */
+    footer {
+        width: 100%;
+        background-color: #000; /* solid black to cover red gradient */
+    }
+
+    /* Adjust font sizes for better readability */
+    h3 {
+        font-size: 22px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Menu toggle smaller */
+    .menu-toggle {
+        left: 5px;
+        top: 5px;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    /* Sidebar full width and height auto */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        border-radius: 0;
+        box-shadow: none;
+        position: relative;
+    }
+
+    /* Sidebar active state */
+    .sidebar.active {
+        position: fixed;
+        width: 200px;
+        height: 100vh;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 15px;
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    /* Content full width */
+    .content {
+        margin-left: 0;
+        padding: 15px 8px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Content margin when sidebar active */
+    .sidebar.active + .content {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+    }
+
+    /* Font size adjustments */
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+}
+
+/* Additional responsiveness for smaller phones */
+@media (max-width: 480px) {
+    .menu-toggle {
+        left: 5px;
+        top: 5px;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .sidebar {
+        width: 200px;
+        padding: 15px;
+        border-radius: 5px;
+        height: 100vh;
     }
 
     .content {
         margin-left: 0;
+        padding: 15px 8px;
+        font-size: 14px;
+        color: #000000;
     }
 
-    .sidebar.active+.content {
-        margin-left: 250px;
+    .user-table-container {
+        margin-top: 10px;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 16px;
     }
 }
 
